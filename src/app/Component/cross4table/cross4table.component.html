@@ -9,6 +9,11 @@
 </div>
 <br />
 <div fxLayout="row" fxLayoutAlign="center">
-  <button mat-fab color="primary">restart</button>
+  <button mat-fab color="primary" (click)="reset()">restart</button>
 </div>
-
+<div *ngIf="win && !tag" fxLayout="row" fxLayoutAlign="center">
+  <p>red win</p>
+</div>
+<div *ngIf="win && tag" fxLayout="row" fxLayoutAlign="center">
+  <p>blue win</p>
+</div>
