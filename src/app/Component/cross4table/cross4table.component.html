@@ -1,0 +1,14 @@
+<div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="center center" >
+  <div class="table" fxLayout="row" >
+    <div class="column" *ngFor="let number of arrayOne(length) let x = index" [attr.data-index]="x" fxLayout="column" fxLayoutGap="10px" fxFlexAlign="center">
+      <div class="item" *ngFor="let number of arrayOne(height) let y = index" [attr.data-index]="y">
+        <app-cross4item [length]=y [height]=x></app-cross4item>
+      </div>
+    </div>
+  </div>
+</div>
+<br />
+<div fxLayout="row" fxLayoutAlign="center">
+  <button mat-fab color="primary">restart</button>
+</div>
+

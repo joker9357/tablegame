@@ -1,0 +1,12 @@
+.table{
+  border-width: 1px;
+  border-style: solid;
+}
+
+.item{
+  margin: 10px;
+}
+
+.column:hover{
+  background-color: darkgrey;
+}
