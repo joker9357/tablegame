@@ -1,0 +1,18 @@
+.square {
+  height: 75px;
+  width: 75px;
+  border: 1px solid #27802B;
+}
+
+.playable {
+  background-color: #27802B;
+}
+
+.unplayable {
+  background-color: #FDFFD3;
+}
+
+.highlight {
+  background-color: yellow;
+  border: 1px solid yellow;
+}

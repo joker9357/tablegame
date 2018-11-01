@@ -30,6 +30,7 @@ export class Connect4Service {
     // console.log(this.board);
     this.boardChanged.next(this.board);
     this.win.next('null');
+    this.tag = false;
   }
 
   getBoard() {
@@ -37,7 +38,7 @@ export class Connect4Service {
   }
 
   winOrNot() {
-    return this.isHorizon() || this.isVertical();
+    return this.isHorizon() || this.isVertical() || this.isDiagonal();
   }
 
   isHorizon() {
@@ -110,7 +111,7 @@ export class Connect4Service {
     const row = this.board.length;
     const col = this.board[0].length;
 
-    //bottomleft
+    // bottomleft
     for (let i = row - 1; i >= 0; i --) {
       let found = 0;
       let last = 0;
@@ -139,7 +140,7 @@ export class Connect4Service {
       }
     }
 
-    for (let i = 1; i < col; i++){
+    for (let i = 1; i < col; i++) {
       let found = 0;
       let last = 0;
       for (let j = 0, k = i; k < col; j ++, k++) {
@@ -167,7 +168,62 @@ export class Connect4Service {
       }
     }
 
-    //topleft
+    // topleft
+    for (let i = 0; i < row; i ++) {
+      let found = 0;
+      let last = 0;
+      for (let j = i, k = 0; j >= 0; j --, k++) {
+        if (this.board[j][k] === 1) {
+          if (last === 1) {
+            found++;
+          } else {
+            found = 1;
+            last = 1;
+          }
+        } else if (this.board[j][k] === -1) {
+          if (last === -1) {
+            found++;
+          } else {
+            found = 1;
+            last = -1;
+          }
+        } else {
+          found = 0;
+          last = 0;
+        }
+        if (found >= 4) {
+          return true;
+        }
+      }
+    }
 
+    for (let i = 1; i < col; i++) {
+      let found = 0;
+      let last = 0;
+      for (let j = row - 1, k = i; k < col; j --, k++) {
+        if (this.board[j][k] === 1) {
+          if (last === 1) {
+            found++;
+          } else {
+            found = 1;
+            last = 1;
+          }
+        } else if (this.board[j][k] === -1) {
+          if (last === -1) {
+            found++;
+          } else {
+            found = 1;
+            last = -1;
+          }
+        } else {
+          found = 0;
+          last = 0;
+        }
+        if (found >= 4) {
+          return true;
+        }
+      }
+    }
+    return false;
   }
 }

@@ -1,0 +1,15 @@
+.circle {
+  width: 60px;
+  height: 60px;
+  border-radius: 40px;
+  position: relative;
+  bottom: 7px;
+}
+
+.red {
+  background: red;
+}
+
+.black {
+  background: gray;
+}

@@ -1,0 +1,6 @@
+<div class="square"
+[class.playable]="space.playable === true"
+[class.unplayable]="space.playable === false" fxLayoutAlign="center center">
+  <app-pawn *ngIf="space.draught !== null && space.draught.type === 'pawn'" [pawn]="space.draught"></app-pawn>
+  <app-pawnking *ngIf="space.draught !== null && space.draught.type === 'king'" [pawnKing]="space.draught"></app-pawnking>
+</div>

@@ -1,0 +1,5 @@
+<div fxLayout="column">
+  <div *ngFor="let row of board" fxLayout="row" fxLayoutAlign="center center">
+    <app-space *ngFor="let col of row" [space]="col"></app-space>
+  </div>
+</div>
